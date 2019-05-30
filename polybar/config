@@ -1,0 +1,159 @@
+[colors]
+test = #181717
+lightgrey = #D6DBDE
+grey = #709080
+darkgrey = #191919
+black = #010000
+white = #FAFBFB
+casablanca = #F4B34B
+
+
+[settings]
+screenchange-reload = true
+throttle-ms = 50
+throttle-limit = 5
+
+[section/base]
+override-redirect = true
+wm-restack = i3
+
+font-0 = SFNS Display:size=9;2
+font-1 = FontAwesome5Free:size=7;1
+font-2 = Unifont:size=6;2
+font-3 = FontAwesome5Brands:size=9;2
+font-4 = FontAwesome5FreeSolid:size=7;2
+
+width = 100%
+height = 27
+offset-y = 5
+
+overline-size = 2
+overline-color = #ffffff
+underline-size = 2
+underline-color = #ffffff
+
+background = ${colors.black}
+
+spacing = 1
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 2
+
+[bar/short]
+inherit= section/base
+monitor = HDMI-0
+
+modules-left = i3
+modules-right = memory cpu clock
+
+[bar/long]
+inherit= section/base
+monitor = DP-0
+
+modules-left = i3
+
+[module/cpu]
+type = internal/cpu
+
+interval = 1
+
+format = <label> <ramp-coreload>
+format-padding = 2
+format-background = ${colors.black}
+format-underline = ${colors.black}
+format-overline = ${colors.black}
+
+label = cpu
+label-foreground = ${colors.white}
+label-font = 0
+
+ramp-coreload-spacing = 1
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+ramp-coreload-font= 2
+ramp-coreload-foreground = ${colors.white}
+
+[module/memory]
+type = internal/memory
+
+interval = 3
+
+format = <label> <bar-used>
+format-padding = 2
+format-background = ${colors.black}
+format-foreground = ${colors.white}
+
+label = memory
+label-foreground = ${colors.white}
+label-font = 0
+
+bar-used-width = 12
+bar-used-indicator = |
+bar-used-indicator-foreground = ${colors.white}
+bar-used-indicator-font = 2
+bar-used-fill = ─
+bar-used-fill-foreground = ${colors.white}
+bar-used-fill-font = 2
+bar-used-empty = ─
+bar-used-empty-foreground = ${colors.grey}
+bar-used-empty-font = 2
+
+[module/i3]
+type = internal/i3
+
+format = <label-state> <label-mode>
+format-spacing = 0
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+ws-icon-default = 
+
+label-focused = %icon%
+label-focused-padding = 2
+label-focused-margin = 1
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.casablanca}
+label-focused-overline = ${colors.black}
+label-focused-underline = ${colors.black}
+
+label-unfocused = %icon%
+label-unfocused-padding = 2
+label-unfocused-margin = 1
+label-unfocused-background = ${colors.white}
+label-unfocused-foreground = ${colors.black}
+label-unfocused-overline = ${colors.black}
+label-unfocused-underline = ${colors.black}
+
+label-urgent = %icon%
+label-urgent-padding = 2
+label-urgent-margin = 1
+
+label-visible = %icon%
+label-visible-padding = 2
+label-visible-margin = 1
+
+index-sort = true
+
+[module/clock]
+type = internal/date
+date = %Y-%m-%d %H:%M%
+
+format-padding = 2
+format-background = ${colors.casablanca}
+format-foreground = ${colors.black}
+format-underline = ${colors.black}
+format-overline = ${colors.black}
