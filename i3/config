@@ -169,33 +169,57 @@ bindsym $mod+r mode "resize"
 #        status_command i3status
 #}
 
-### Added by Jesse
+###
+# Added by Jesse
+###
+
 # Auto open files to workspaces
 # assign [class="regex"] workspace
 assign [class="terminal"] 1
 assign [class="^Firefox$"] 2
 assign [class="^Google Play Music Desktop Player$"] 10
+
 # Remove window borders for gaps
 for_window [class=".*"] border pixel 0
+
 # Set workspaces to monitors BENQ=HDMI-0 ASUS=DP-0
 workspace 1 output HDMI-0
 workspace 2 output DP-0
 workspace 10 output HDMI-0
+
 # Shortcuts
 bindsym $mod+shift+x exec betterlockscreen -l dim
 bindsym $mod+d exec rofi -show run -lines 5 -opacity 10 -font "SFNS Display 10"
 bindsym $mod+Tab exec rofi -show window
+
 # Compton compositor
 exec --no-startup-id compton -b -f -D 1 --config ~/.config/compton/config
+
 # Background
 exec --no-startup-id feh --bg-fill --no-xinerama /home/jesse/Pictures/Wallpapers/IMG_6105birds.jpg
+
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
+
 ## Gaaaps
 # Sizes
 gaps inner 5
 gaps top 20
+
 # Start applications
 exec xfce4-terminal
 exec firefox
 exec gpmdp
+
+# Auto lock and suspend
+exec --no-startup-id xautolock \
+        -detectsleep \
+        -time 10 \
+        -locker "notify-send -u critical 'xautolock' 'HEY! Configure me to lock with betterlockscreen'" \
+        -killtime 50 \
+        -killer "systemctl suspend" \
+        -notify 30 \
+        -notifier "notify-send -t 30000 'xautolock' 'Screen will lock in 30 seconds.'"
+
+# Kirsten
+exec --no-startup-id dunst -c ~/.config/dunst/dunstrc
