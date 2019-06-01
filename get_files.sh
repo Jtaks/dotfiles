@@ -18,3 +18,9 @@ then
 fi
 cp ~/.config/polybar/config ./polybar/
 cp ~/.config/polybar/launch.sh ./polybar/
+
+if [[ ! -d "dunst" ]]
+then
+  mkdir dunst
+fi
+cp ~/.config/dunst/dunstrc ./dunst/

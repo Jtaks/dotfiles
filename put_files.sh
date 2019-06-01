@@ -17,3 +17,9 @@ then
   mkdir "/home/$USER/.config/polybar"
 fi
 cp ./polybar/* "/home/$USER/.config/polybar"
+
+if [[ ! -d "/home/$USER/.config/dunst" ]]
+then
+  mkdir "/home/$USER/.config/dunst"
+fi
+cp ./dunst/* "/home/$USER/.config/dunst"
