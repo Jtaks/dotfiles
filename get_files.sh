@@ -24,3 +24,10 @@ then
   mkdir dunst
 fi
 cp ~/.config/dunst/dunstrc ./dunst/
+
+if [[ ! -d "rofi" ]]
+then
+  mkdir rofi
+fi
+cp ~/.config/rofi/config ./rofi/
+cp ~/.config/rofi/theme.rasi ./rofi/

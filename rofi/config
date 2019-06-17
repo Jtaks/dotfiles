@@ -1,0 +1,3 @@
+rofi.font: SFNS Display 10
+rofi.separator-style: solid
+rofi.theme: theme

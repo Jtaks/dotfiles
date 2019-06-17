@@ -23,3 +23,9 @@ then
   mkdir "/home/$USER/.config/dunst"
 fi
 cp ./dunst/* "/home/$USER/.config/dunst"
+
+if [[ ! -d "/home/$USER/.config/rofi" ]]
+then
+  mkdir "/home/$USER/.config/rofi"
+fi
+cp ./rofi/* "/home/$USER/.config/rofi"
