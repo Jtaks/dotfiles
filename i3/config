@@ -189,7 +189,7 @@ workspace 10 output HDMI-0
 
 # Shortcuts
 bindsym $mod+shift+x exec betterlockscreen -l dim
-bindsym $mod+d exec rofi -show run -lines 5 -opacity 10 -font "SFNS Display 10"
+bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 
 # Compton compositor
@@ -212,14 +212,11 @@ exec firefox
 exec gpmdp
 
 # Auto lock and suspend
-exec --no-startup-id xautolock \
-        -detectsleep \
-        -time 10 \
-        -locker "notify-send -u critical 'xautolock' 'HEY! Configure me to lock with betterlockscreen'" \
-        -killtime 50 \
-        -killer "systemctl suspend" \
-        -notify 30 \
-        -notifier "notify-send -t 30000 'xautolock' 'Screen will lock in 30 seconds.'"
-
-# Kirsten
-exec --no-startup-id dunst -c ~/.config/dunst/dunstrc
+#exec --no-startup-id xautolock \
+#        -detectsleep \
+#        -time 10 \
+#        -locker "notify-send -u critical 'xautolock' 'HEY! Configure me to lock with betterlockscreen'" \
+#        -killtime 50 \
+#        -killer "systemctl suspend" \
+#        -notify 30 \
+#        -notifier "notify-send -t 30000 'xautolock' 'Screen will lock in 30 seconds.'"
