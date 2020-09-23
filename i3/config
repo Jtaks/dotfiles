@@ -173,43 +173,71 @@ bindsym $mod+r mode "resize"
 # Added by Jesse
 ###
 
+# xrandr
+exec_always --no-startup-id xrandr \
+        --output DVI-I-0 --off \
+        --output DVI-I-1 --off \
+        --output HDMI-0 --off \
+        --output DP-0 --primary --mode 3440x1440 --pos 1440x580 --rotate normal \
+        --output DP-1 --off \
+        --output DP-2 --off \
+        --output DP-3 --off \
+        --output DP-4 --mode 2560x1440 --pos 0x0 --rotate right \
+        --output DP-5 --off
+
 # Auto open files to workspaces
 # assign [class="regex"] workspace
-assign [class="terminal"] 1
-assign [class="^Firefox$"] 2
-assign [class="^Google Play Music Desktop Player$"] 10
+# assign [class="terminal"] 1
+# assign [class="^firefox$"] 1
 
 # Remove window borders for gaps
 for_window [class=".*"] border pixel 0
 
-# Set workspaces to monitors BENQ=HDMI-0 ASUS=DP-0
-workspace 1 output HDMI-0
+# Set workspaces to monitors DELL=DP-4 LG=DP-0
+workspace 1 output DP-4
 workspace 2 output DP-0
-workspace 10 output HDMI-0
+
+# Modes
+mode "move" {
+        bindsym Left move container to output left
+        bindsym Right move container to output right
+
+        # back to normal: Enter or Escape or $mod+m
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+m mode "default"
+}
 
 # Shortcuts
-bindsym $mod+shift+x exec betterlockscreen -l dim
+bindsym $mod+x exec betterlockscreen -l dimblur
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'YDo you really want to shutdown?' -B 'Yes' 'poweroff'"
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
+bindsym $mod+m mode "move"
 
 # Compton compositor
 exec --no-startup-id compton -b -f -D 1 --config ~/.config/compton/config
 
 # Background
-exec --no-startup-id feh --bg-fill --no-xinerama /home/jesse/Pictures/Wallpapers/IMG_6105birds.jpg
+# exec_always --no-startup-id feh --bg-max /home/jesse/Pictures/Wallpapers/yellow-horizontal.png --bg-max /home/jesse/Pictures/Wallpapers/yellow-vertical.png
+exec_always --no-startup-id feh --bg-scale --no-xinerama /home/jesse/Pictures/Wallpapers/yellow-combined.png
 
 # Polybar
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
+# Be nice to your eyes
+exec --no-startup-id redshift \
+        -l 51.05011:-114.08529 \
+        -t 6500:2400
+
 ## Gaaaps
 # Sizes
 gaps inner 5
-gaps top 20
+gaps top 35
 
 # Start applications
-exec xfce4-terminal
-exec firefox
-exec gpmdp
+# exec xfce4-terminal
+# exec firefox
 
 # Auto lock and suspend
 #exec --no-startup-id xautolock \

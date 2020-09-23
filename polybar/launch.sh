@@ -7,5 +7,4 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch long and short
-polybar long &
-polybar short
+polybar long & polybar short
