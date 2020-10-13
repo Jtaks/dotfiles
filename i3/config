@@ -210,7 +210,7 @@ mode "move" {
 
 # Shortcuts
 bindsym $mod+x exec betterlockscreen -l dimblur
-bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'YDo you really want to shutdown?' -B 'Yes' 'poweroff'"
+bindsym $mod+Shift+x exec "i3-nagbar -t warning -m 'Do you really want to shutdown?' -B 'Yes' 'sudo shutdown now'"
 bindsym $mod+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
 bindsym $mod+m mode "move"
